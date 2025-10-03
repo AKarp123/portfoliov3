@@ -1,20 +1,52 @@
-import eslintPluginAstro from 'eslint-plugin-astro';
-import parser from '@typescript-eslint/parser'
-import typescript from '@typescript-eslint/eslint-plugin'
+import { defineConfig } from "eslint/config";
+import globals from "globals";
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
+import astro from "eslint-plugin-astro";
 
-export default [
-  ...eslintPluginAstro.configs.recommended,
+// parsers
+const tsParser = tseslint.parser;
+const astroParser = astro.parser;
+
+export default defineConfig([
+  // Global configuration
   {
-	plugins: {
-	  '@typescript-eslint': typescript,
-	},
-    files: ["**/*.ts"], // only apply typed config to TS
     languageOptions: {
-      parser,
-      parserOptions: {
-        project: ['./tsconfig.json'],
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
     },
-    // rules...
-  }
-];
+  },
+
+  // Base configs
+  js.configs.recommended,
+  tseslint.configs.recommended,
+
+  
+
+  astro.configs.recommended,
+  {
+    files: ["**/*.astro"],
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: [".astro"],
+        sourceType: "module",
+        ecmaVersion: "latest",
+        project: "./tsconfig.json",
+      },
+    },
+    rules: {
+      "no-undef": "off", // Disable "not defined" errors for specific Astro types that are globally available (ImageMetadata)
+      "@typescript-eslint/no-explicit-any": "off", // you may want this as it can get annoying
+      "indent": ["error", "tab"]
+    },
+  },
+
+  // Ignore patterns
+  {
+    ignores: ["dist/**", "**/*.d.ts", ".github/"],
+  },
+]);

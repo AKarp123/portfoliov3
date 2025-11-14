@@ -12,11 +12,11 @@ import { ClientRouter } from 'astro:transitions';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
-		<ClientRouter />
+		<!-- <ClientRouter /> -->
 
 	</head>
 	<body>
-		<main id="swup" class="transition-swup-fade border-amber-50 border-8 rounded-lg">
+		<main class="border-amber-50 border-8 rounded-lg">
   			<slot />
 		</main>
 	</body>
@@ -30,17 +30,7 @@ import { ClientRouter } from 'astro:transitions';
 		height: 100%;
 		
 	}
-	.transition-fade {
-		opacity: 0;
-		transition: opacity 0.4s ease;
-	}
-	html.is-changing .transition-fade,
-	html.is-animating .transition-fade {
-		opacity: 0;
-	}
-	html.is-ready .transition-fade {
-		opacity: 1;
-	}
+	
 
 </style>
 

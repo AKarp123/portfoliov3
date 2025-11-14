@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 ---
+
 
 <!doctype html>
 <html lang="en">
@@ -10,9 +12,13 @@ import '../styles/global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<ClientRouter />
+
 	</head>
 	<body>
-		<slot />
+		<main id="swup" class="transition-swup-fade border-amber-50 border-8 rounded-lg">
+  			<slot />
+		</main>
 	</body>
 </html>
 
@@ -24,4 +30,28 @@ import '../styles/global.css';
 		height: 100%;
 		
 	}
+	.transition-fade {
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+	html.is-changing .transition-fade,
+	html.is-animating .transition-fade {
+		opacity: 0;
+	}
+	html.is-ready .transition-fade {
+		opacity: 1;
+	}
+
 </style>
+
+<script>
+
+	if (typeof window !== "undefined") {
+  window.addEventListener("DOMContentLoaded", () => {
+    document.documentElement.classList.add("is-ready");
+  });
+
+
+
+}
+</script>

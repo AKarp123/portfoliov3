@@ -9,7 +9,8 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [react(), swup({
-	
+		theme: false,
+		animationClass: 'transition-swup-',
 	})],
 	vite: {
 		plugins: [tailwindcss()]

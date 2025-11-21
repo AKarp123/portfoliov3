@@ -1,8 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Project from "../components/Project.tsx";
+import { getCollection } from "astro:content";
+import "../styles/global.css";
+
+const projects = await getCollection("projects");
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout>
-	<h1>Projects</h1>
-	<a href="/">Home</a>
+	<div class="transition-swup-scale">
+		<div class="mx-auto max-w-6xl px-4 py-12">
+			<h1 class="mb-8 text-4xl font-bold">Projects</h1>
+			
+			<div class="mb-8">
+				<a 
+					href="/"
+					class="text-blue-600 hover:underline"
+				>
+					← Back to Home
+				</a>
+			</div>
+
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{sortedProjects.map((project) => (
+					<Project 
+						title={project.data.title}
+						description={project.data.description}
+						image={project.data.image}
+						url={project.data.url}
+						github={project.data.github}
+						tags={project.data.tags}
+						featured={project.data.featured}
+						client:load
+					/>
+				))}
+			</div>
+		</div>
+	</div>
 </Layout>

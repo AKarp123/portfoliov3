@@ -1,35 +1,60 @@
-# Astro Starter Kit: Basics
+# Portfolio V3
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+An Astro-based portfolio website with a template system for managing projects.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
+## 
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+ public/
+ favicon.svg   
+ src
+ assets   
+ components   
+ Project.tsx      # Project card component      
+ ...      
+ content   
+ config.ts         # Content collections configuration      
+ projects/         # Project data (JSON files)      
+ layouts   
+ Layout.astro      
+ pages   
+ index.astro       
+ projects.astro    # Projects page       
+ package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 
+This site uses Astro's Content Collections to manage projects. To add a new project:
 
-## 🧞 Commands
+1. Create a new JSON file in `src/content/projects/`
+2. Follow this structure:
 
+```json
+{
+  "title": "Project Name",
+  "description": "Project description",
+  "image": "/path/to/image.jpg",
+  "url": "https://project-url.com",
+  "github": "https://github.com/username/repo",
+  "tags": ["Tag1", "Tag2"],
+  "featured": false,
+  "order": 1
+}
+```
+
+Fields:
+- `title` (required): Project name
+- `description` (required): Brief description
+- `image` (required): Path to project image
+- `url` (optional): Live project URL
+- `github` (optional): GitHub repository URL
+- `tags` (optional): Array of technology tags
+- `featured` (optional): Highlight as featured project
+- `order` (optional): Display order (lower numbers first)
+
+## 
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
@@ -41,6 +66,5 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
+## 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

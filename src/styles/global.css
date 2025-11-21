@@ -4,3 +4,14 @@
 body {
 	background-color: rgb(255, 238, 218);
 }
+
+html.is-animating .transition-swup-scale {
+	transform: scale(0);
+}
+
+html.is-changing .transition-swup-scale {
+	transition: 0.4s;
+	transform: scale(1);
+}
+
+

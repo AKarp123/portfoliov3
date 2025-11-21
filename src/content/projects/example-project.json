@@ -1,0 +1,10 @@
+{
+	"title": "Example Project",
+	"description": "This is an example project demonstrating the template system. Replace this with your actual project details.",
+	"image": "/placeholder.jpg",
+	"url": "https://example.com",
+	"github": "https://github.com/username/project",
+	"tags": ["React", "TypeScript", "Astro"],
+	"featured": true,
+	"order": 1
+}

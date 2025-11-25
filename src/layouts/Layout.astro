@@ -1,7 +1,7 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar";
 ---
-
 
 <!doctype html>
 <html lang="en">
@@ -11,50 +11,37 @@ import '../styles/global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
-		
+
 		<!-- <ClientRouter /> -->
 	</head>
 	<body>
-		<main id="swup" class="transition-swup-fade border-amber-50 border-8 rounded-lg">
-  			<slot />
+		<main id="swup" class="flex flex-row rounded-lg border-8 border-amber-50">
+			
+				<Sidebar />
+			</div>
+			<div class="transition-swup-fade">
+				<slot />
+			</div>
 		</main>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0 auto;
-		width: 75%;
-		height: 100%;
-		
-	}
-
 	html.is-changing .transition-swup-fade {
 		transition: 0.1s;
 		opacity: 1;
-		transform: scale(1);
+		/* transform: scale(1); */
 	}
 	html.is-animating .transition-swup-fade {
 		opacity: 0;
-		transform: scale(0.8)
-	
+		/* transform: scale(0.8) */
 	}
-
-	
-
-	
-
 </style>
 
 <script>
-
 	if (typeof window !== "undefined") {
-  window.addEventListener("DOMContentLoaded", () => {
-    document.documentElement.classList.add("is-ready");
-  });
-
-
-
-}
+		window.addEventListener("DOMContentLoaded", () => {
+			document.documentElement.classList.add("is-ready");
+		});
+	}
 </script>

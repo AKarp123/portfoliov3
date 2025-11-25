@@ -1,7 +1,8 @@
+import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
 const projectsCollection = defineCollection({
-	type: 'data',
+	loader: glob({ pattern: "*.json", base: "./src/content/projects"}),
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
@@ -14,6 +15,20 @@ const projectsCollection = defineCollection({
 	}),
 });
 
+const experienceCollection = defineCollection({
+	loader: glob({ pattern: "*.json", base: "./src/content/experience"}),
+	schema: z.object({
+		company: z.string(),
+		position: z.string(),
+		startDate: z.string(),
+		endDate: z.string().optional(),
+		logo: z.string(),
+		description: z.string(),
+		link: z.string().optional(),
+	}),
+})
+
 export const collections = {
 	projects: projectsCollection,
+	experience: experienceCollection,
 };

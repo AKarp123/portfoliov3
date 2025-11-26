@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Sidebar from "../components/Sidebar";
+const currentPath = Astro.url.pathname
 ---
 
 <!doctype html>
@@ -15,13 +16,13 @@ import Sidebar from "../components/Sidebar";
 		<!-- <ClientRouter /> -->
 	</head>
 	<body>
-		<main id="swup" class="flex flex-row rounded-lg border-8 border-amber-50">
-			
-				<Sidebar />
-			</div>
-			<div class="transition-swup-fade">
+		<main class="flex flex-row rounded-lg">
+			<Sidebar currentPath={currentPath} />
+
+			<div id="swup" class="transition-swup-fade max-h-screen overflow-auto no-scrollbar mx-auto w-[90%] md:w-[60%] md:mx-4 pb-2">
 				<slot />
 			</div>
+			<div class="md:w-[20%]"></div>
 		</main>
 	</body>
 </html>

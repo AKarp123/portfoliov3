@@ -5,3 +5,24 @@ body {
 	background-color: rgb(255, 238, 218);
 }
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@theme {
+	--font-pixel: "PixelOperator", sans-serif;
+}
+
+@font-face {
+	font-family: "PixelOperator";
+	src: url("/fonts/PixelOperator.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

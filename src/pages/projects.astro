@@ -11,32 +11,21 @@ const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
 
 <Layout>
 	<div>
-		<div class="mx-auto max-w-6xl px-4 py-12">
-			<h1 class="mb-8 text-4xl font-bold">Projects</h1>
-			
-			<div class="mb-8">
-				<a 
-					href="/"
-					class="text-blue-600 hover:underline"
-				>
-				← Back to Home
-				</a>
-			</div>
+		<h1 class="mb-8 text-4xl font-bold">Projects</h1>
 
-			<div class="flex flex-col gap-12">
-				{sortedProjects.map((project) => (
-					<Project 
-						title={project.data.title}
-						description={project.data.description}
-						image={project.data.image}
-						url={project.data.url}
-						github={project.data.github}
-						tags={project.data.tags}
-						featured={project.data.featured}
-						client:load
-					/>
-				))}
-			</div>
+		<div class="flex flex-col gap-12">
+			{sortedProjects.map((project) => (
+				<Project 
+					title={project.data.title}
+					description={project.data.description}
+					image={project.data.image}
+					url={project.data.url}
+					github={project.data.github}
+					tags={project.data.tags}
+					featured={project.data.featured}
+					client:load
+				/>
+			))}
 		</div>
 	</div>
 </Layout>

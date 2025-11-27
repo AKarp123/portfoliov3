@@ -22,7 +22,7 @@ const currentPath = Astro.url.pathname
 			<div id="swup" class="transition-swup-fade max-h-screen overflow-auto no-scrollbar mx-auto w-[90%] md:w-[60%] md:mx-4 pb-2 resize-transition">
 				<slot />
 			</div>
-			<div class="md:w-[20%]"></div>
+			<div class="md:w-[20%] "></div>
 		</main>
 	</body>
 </html>
@@ -33,7 +33,7 @@ const currentPath = Astro.url.pathname
 
 
 	html.is-changing .transition-swup-fade {
-		transition: margin 280ms ease, width 280ms ease, opacity 0.1s;
+		transition: margin 280ms ease, width 280ms ease, opacity 0.24s;
 		opacity: 1;
 		/* transform: scale(1); */
 	}

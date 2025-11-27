@@ -2,7 +2,13 @@
 @tailwind utilities;
 
 body {
-	background-color: rgb(255, 238, 218);
+
+	--color-background: #D9EAFD;
+	--color-content: #F8FAFC;
+	--color-content-alt: #cdd9e5;
+	/* --color-content- */
+	background-color: var(--color-background);
+	font-family: var(--font-pixel);
 }
 
 @layer utilities {
@@ -30,4 +36,19 @@ body {
 
 .resize-transition {
 	transition: width 280ms ease, height 280ms ease, margin 280ms ease, padding 280ms ease;
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.3s ease-in forwards;
+}
+
+
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

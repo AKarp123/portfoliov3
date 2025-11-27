@@ -26,3 +26,8 @@ body {
 	font-style: normal;
 	font-display: swap;
 }
+
+
+.resize-transition {
+	transition: width 280ms ease, height 280ms ease, margin 280ms ease, padding 280ms ease;
+}

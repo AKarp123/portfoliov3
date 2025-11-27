@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname
 		<main class="flex flex-row rounded-lg">
 			<Sidebar currentPath={currentPath} />
 
-			<div id="swup" class="transition-swup-fade max-h-screen overflow-auto no-scrollbar mx-auto w-[90%] md:w-[60%] md:mx-4 pb-2">
+			<div id="swup" class="transition-swup-fade max-h-screen overflow-auto no-scrollbar mx-auto w-[90%] md:w-[60%] md:mx-4 pb-2 resize-transition">
 				<slot />
 			</div>
 			<div class="md:w-[20%]"></div>
@@ -28,8 +28,12 @@ const currentPath = Astro.url.pathname
 </html>
 
 <style>
+
+	
+
+
 	html.is-changing .transition-swup-fade {
-		transition: 0.1s;
+		transition: margin 280ms ease, width 280ms ease, opacity 0.1s;
 		opacity: 1;
 		/* transform: scale(1); */
 	}

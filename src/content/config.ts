@@ -3,10 +3,10 @@ import { defineCollection, z } from 'astro:content';
 
 const projectsCollection = defineCollection({
 	loader: glob({ pattern: "*.json", base: "./src/content/projects"}),
-	schema: z.object({
+	schema: ({image}) => z.object({
 		title: z.string(),
 		description: z.string(),
-		image: z.string(),
+		image: image().optional(),
 		url: z.string().optional(),
 		github: z.string().optional(),
 		tags: z.array(z.string()).optional(),

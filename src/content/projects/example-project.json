@@ -1,7 +1,7 @@
 {
-	"title": "Example Project",
-	"description": "This is an example project demonstrating the template system. Replace this with your actual project details.",
-	"image": "/placeholder.jpg",
+	"title": "Eastern Sky Radio",
+	"description": "Full stack application to post show content and manage show planning. Added CI/CD for testing and buildin jxvndsf sdnsnkfjsnk j sefg.",
+	"image": "@src/assets/esr.png",
 	"url": "https://example.com",
 	"github": "https://github.com/username/project",
 	"tags": ["React", "TypeScript", "Astro"],

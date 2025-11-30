@@ -1,7 +1,6 @@
 {
 	"title": "Another Project",
 	"description": "Another example project to show multiple projects in the template system.",
-	"image": "/placeholder.jpg",
 	"tags": ["JavaScript", "Node.js"],
 	"order": 2
 }

@@ -1,0 +1,8 @@
+{
+	"title": "Navidrome Rich Presence Client",
+	"description": "A Node.js client that updates your Discord Rich Presence based on what you're listening to on Navidrome. Utilizes Navidrome's subsonic api for easy integration. Uses bun for building executables",
+	"tags": ["TypeScript", "Bun"],
+	"github": "https://github.com/AKarp123/navidrome-rich-presence/",
+	"order": 3
+	
+}

@@ -1,0 +1,10 @@
+{
+	"title": "Eastern Sky Radio",
+	"description": "Website for Eastern Sky Radio, my radio show on 90.3 The Core. Displays previous set lists and song info. Added CI/CD with Bun and Caddy for automatic deployments and testing.",
+	"image": "@src/assets/esr.png",
+	"url": "https://easternskyradio.xyz",
+	"github": "https://github.com/AKarp123/EasternSkyRadio",
+	"tags": ["React", "TypeScript", "Bun", "Express.js", "MongoDB", "Caddy"],
+	"featured": true,
+	"order": 1
+}

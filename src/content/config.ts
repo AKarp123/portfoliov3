@@ -15,6 +15,7 @@ const projectsCollection = defineCollection({
 	}),
 });
 
+
 const experienceCollection = defineCollection({
 	loader: glob({ pattern: "*.json", base: "./src/content/experience"}),
 	schema: z.object({
@@ -22,7 +23,6 @@ const experienceCollection = defineCollection({
 		position: z.string(),
 		startDate: z.string(),
 		endDate: z.string().optional(),
-		logo: z.string(),
 		description: z.string(),
 		link: z.string().optional(),
 	}),

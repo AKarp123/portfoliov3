@@ -32,7 +32,7 @@ const Experience = ({
 
 	return (
 		<div
-			className="animate-fade-in flex gap-4 rounded-lg border-gray-300 bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md"
+			className="animate-fade-in flex gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md"
 			style={{ animationDelay: `${index * 100}ms` }}
 		>
 
@@ -43,18 +43,18 @@ const Experience = ({
 							href={link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-pixel text-lg font-bold underline decoration-gray-400 underline-offset-4 transition-colors hover:text-gray-700"
+							className="font-pixel text-lg font-bold underline decoration-[var(--color-border)] underline-offset-4 transition-colors hover:text-[var(--color-accent)]"
 						>
 							{company}
 						</a>
 					) : (
 						<h3 className="font-pixel text-lg font-bold">{company}</h3>
 					)}
-					<p className="text-sm text-gray-600">{dateRange}</p>
+					<p className="text-sm text-[var(--color-text-secondary)]">{dateRange}</p>
 				</div>
 
 				<p className="font-pixel text-xl font-semibold">{position}</p>
-				<p className="mt-2 font-pixel leading-relaxed text-gray-700">{description}</p>
+				<p className="mt-2 font-pixel leading-relaxed text-[var(--color-text-secondary)]">{description}</p>
 			</div>
 		</div>
 	);

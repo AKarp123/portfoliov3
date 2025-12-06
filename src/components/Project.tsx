@@ -21,19 +21,19 @@ export default function Project({
 }: ProjectProps) {
 	return (
 		<div
-			className="animate-fade-in flex flex-row rounded-lg border-gray-300 bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md gap-4"
+			className="animate-fade-in flex flex-row gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md"
 			style={{ animationDelay: `${index * 100}ms` }}
 		>
 			<div className="">
 				<h3 className="font-pixel mb-2 text-xl font-bold">{title}</h3>
-				<p className="font-pixel mb-4 text-gray-700">{description}</p>
+				<p className="font-pixel mb-4 text-[var(--color-text-secondary)]">{description}</p>
 
 				{tags && tags.length > 0 && (
 					<div className="mb-4 flex flex-wrap gap-2">
 						{tags.map((tag) => (
 							<span
 								key={tag}
-								className="rounded-full bg-[var(--color-content-alt)] px-3 py-1 text-sm text-black"
+								className="rounded-full bg-[var(--color-content-alt)] px-3 py-1 text-sm text-[var(--color-text-primary)]"
 							>
 								{tag}
 							</span>
@@ -47,7 +47,7 @@ export default function Project({
 							href={url}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="rounded px-2 py-1 text-black transition-colors duration-400 hover:bg-gray-300"
+							className="rounded px-2 py-1 text-[var(--color-text-primary)] transition-colors duration-400 hover:bg-[var(--color-content-alt)]"
 						>
 							View Project
 						</a>
@@ -57,7 +57,7 @@ export default function Project({
 							href={github}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="rounded px-2 py-1 transition-colors duration-400 hover:bg-gray-300"
+							className="rounded px-2 py-1 text-[var(--color-text-primary)] transition-colors duration-400 hover:bg-[var(--color-content-alt)]"
 						>
 							GitHub
 						</a>

@@ -6,7 +6,7 @@ const Home = () => {
 			<div className="flex flex-row gap-2">
 				<a
 					href="https://www.linkedin.com/in/ashton-karp-ka/"
-					className="rounded-2xl p-2 transition-colors duration-300 hover:bg-[#aebbca]"
+					className="rounded-2xl p-2 text-[var(--color-text-primary)] transition-colors duration-300 hover:bg-[var(--color-content-alt)]"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
@@ -29,7 +29,7 @@ const Home = () => {
 				</a>
 				<a
 					href="https://github.com/AKarp123"
-					className="rounded-2xl p-2 transition-colors duration-300 hover:bg-[#aebbca]"
+					className="rounded-2xl p-2 text-[var(--color-text-primary)] transition-colors duration-300 hover:bg-[var(--color-content-alt)]"
 					target="_blank"
 					rel="noopener noreferrer"
 				>

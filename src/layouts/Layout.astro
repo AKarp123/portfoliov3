@@ -12,10 +12,65 @@ const currentPath = Astro.url.pathname
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<script is:inline>
+			(() => {
+				const storageKey = "theme-preference";
+				const getPreference = () => {
+					try {
+						const stored = localStorage.getItem(storageKey);
+						if (stored === "light" || stored === "dark") return stored;
+					} catch {
+						// Ignore storage errors (private mode)
+					}
+					return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+				};
+				const initial = getPreference();
+				document.documentElement.dataset.theme = initial;
+				document.documentElement.style.colorScheme = initial;
+			})();
+		</script>
 
 		<!-- <ClientRouter /> -->
 	</head>
 	<body>
+		<button
+			type="button"
+			data-theme-toggle
+			class="fixed right-6 top-6 z-50 flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-content)] px-3 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm transition cursor-pointer hover:shadow-md focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+			aria-pressed="false"
+		>
+			<span class="sr-only">Toggle color theme</span>
+			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-content-alt)]">
+				<svg
+					class="theme-icon-sun h-4 w-4"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<circle cx="12" cy="12" r="4" />
+					<path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364-1.414 1.414M6.05 17.95 4.636 19.364m12.728 0L17.95 17.95M6.05 6.05 4.636 4.636" />
+				</svg>
+				<svg
+					class="theme-icon-moon hidden h-4 w-4"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+				</svg>
+			</span>
+
+		</button>
 		<main class="flex flex-row rounded-lg">
 			<Sidebar currentPath={currentPath} />
 
@@ -44,8 +99,78 @@ const currentPath = Astro.url.pathname
 
 <script>
 	if (typeof window !== "undefined") {
+		const storageKey = "theme-preference";
+
+		const getStoredPreference = () => {
+			try {
+				return localStorage.getItem(storageKey);
+			} catch {
+				return null;
+			}
+		};
+
+		const getPreference = () => {
+			const stored = getStoredPreference();
+			if (stored === "light" || stored === "dark") return stored;
+
+			return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+		};
+
+		const applyTheme = (value : string, { persist = false } = {}) => {
+			const theme = value === "dark" ? "dark" : "light";
+			document.documentElement.dataset.theme = theme;
+			document.documentElement.style.colorScheme = theme;
+
+			if (persist) {
+				try {
+					localStorage.setItem(storageKey, theme);
+				} catch {
+					// Ignore storage failures (private mode, etc.)
+				}
+			}
+
+			const label = document.querySelector("[data-theme-label]");
+			if (label) label.textContent = theme === "dark" ? "Dark mode" : "Light mode";
+
+			const toggle = document.querySelector("[data-theme-toggle]");
+			if (toggle) toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+
+			const sun = document.querySelector(".theme-icon-sun");
+			const moon = document.querySelector(".theme-icon-moon");
+			if (sun && moon) {
+				sun.classList.toggle("hidden", theme === "dark");
+				moon.classList.toggle("hidden", theme !== "dark");
+			}
+		};
+
 		window.addEventListener("DOMContentLoaded", () => {
 			document.documentElement.classList.add("is-ready");
+
+			const storedPreference = getStoredPreference();
+			const initialTheme =
+				storedPreference === "light" || storedPreference === "dark"
+					? storedPreference
+					: document.documentElement.dataset.theme || getPreference();
+
+			applyTheme(initialTheme, { persist: Boolean(storedPreference) });
+
+			const toggle = document.querySelector("[data-theme-toggle]");
+			if (toggle) {
+				toggle.addEventListener("click", () => {
+					const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+					applyTheme(next, { persist: true });
+				});
+			}
+
+			if (!storedPreference && window.matchMedia) {
+				const media = window.matchMedia("(prefers-color-scheme: dark)");
+				const syncToSystem = (event: MediaQueryListEvent) => applyTheme(event.matches ? "dark" : "light");
+				if (media.addEventListener) {
+					media.addEventListener("change", syncToSystem);
+				} else if (media.addListener) {
+					media.addListener(syncToSystem);
+				}
+			}
 		});
 	}
 </script>

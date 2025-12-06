@@ -15,7 +15,11 @@ const Sidebar = ({ currentPath } : { currentPath: string}) => {
 				<a
 					key={page.name}
 					href={page.href}
-					className={`font-pixel text-[24px] transition-[font-weight] duration-300 ${currentPath === page.href ? "font-bold" : "font-normal text-gray-700"}`}
+					className={`font-pixel text-[24px] transition-[font-weight,color] duration-300 ${
+						currentPath === page.href
+							? "font-bold text-[var(--color-text-primary)]"
+							: "font-normal text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]"
+					}`}
 				>
 					{page.name}
 				</a>

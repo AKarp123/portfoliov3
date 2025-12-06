@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Sidebar from "../components/Sidebar";
+import MenuBar from "@src/components/MenuBar";
 const currentPath = Astro.url.pathname
 ---
 
@@ -33,44 +34,47 @@ const currentPath = Astro.url.pathname
 		<!-- <ClientRouter /> -->
 	</head>
 	<body>
-		<button
-			type="button"
-			data-theme-toggle
-			class="fixed right-6 top-6 z-50 flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-content)] px-3 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm transition cursor-pointer hover:shadow-md focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
-			aria-pressed="false"
-		>
-			<span class="sr-only">Toggle color theme</span>
-			<span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-content-alt)]">
-				<svg
-					class="theme-icon-sun h-4 w-4"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<circle cx="12" cy="12" r="4" />
-					<path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364-1.414 1.414M6.05 17.95 4.636 19.364m12.728 0L17.95 17.95M6.05 6.05 4.636 4.636" />
-				</svg>
-				<svg
-					class="theme-icon-moon hidden h-4 w-4"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-				</svg>
-			</span>
-
-		</button>
+		<div class="flex gap-2 fixed right-6 top-6 z-50">
+			<button
+				type="button"
+				data-theme-toggle
+				class="flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-content)] px-3 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm transition cursor-pointer hover:shadow-md focus-visible:outline  focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+				aria-pressed="false"
+			>
+				<span class="sr-only">Toggle color theme</span>
+				<span class="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-content-alt)]">
+					<svg
+						class="theme-icon-sun h-4 w-4"
+						aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<circle cx="12" cy="12" r="4" />
+						<path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364-1.414 1.414M6.05 17.95 4.636 19.364m12.728 0L17.95 17.95M6.05 6.05 4.636 4.636" />
+					</svg>
+					<svg
+						class="theme-icon-moon hidden h-4 w-4"
+						aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+					</svg>
+				</span>
+			</button>
+			<MenuBar client:load/>
+			
+		</div>
 		<main class="flex flex-row rounded-lg">
 			<Sidebar currentPath={currentPath} />
 

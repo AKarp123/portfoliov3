@@ -1,11 +1,11 @@
-const Sidebar = ({ currentPath } : { currentPath: string}) => {
 
-	const pages = [
+export const pages = [
 		{ name: "Home", href: "/" },
 		{ name: "Projects", href: "/projects" },
 		{ name: "Experience", href: "/experience" },
 		{ name: "Other", href: "/other" },
 	]
+const Sidebar = ({ currentPath } : { currentPath: string}) => {
 
 
 

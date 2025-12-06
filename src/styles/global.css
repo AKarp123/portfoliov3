@@ -67,6 +67,14 @@ a {
 	animation: fadeIn 0.3s ease-in forwards;
 }
 
+.menu-dropdown-enter {
+	animation: dropdownIn 180ms ease-out forwards;
+}
+
+.menu-dropdown-exit {
+	animation: dropdownOut 140ms ease-in forwards;
+}
+
 
 
 @keyframes fadeIn {
@@ -75,5 +83,27 @@ a {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes dropdownIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-6px) scale(0.98);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes dropdownOut {
+	0% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-6px) scale(0.98);
 	}
 }

@@ -1,6 +1,7 @@
 {
 	"company": "Rutgers Open System Solutions",
 	"position": "Software Developer",
-	"startDate": "2025-01-01",
-	"description": "Shrunk, the official link shortener for Rutgers University, serving over 50,000 University Members and driving 25,000,000+ page visits"
+	"startDate": "2025-01",
+	"description": "Developer of Shrunk, official URL shortener for Rutgers University. Served over 30 million redirects and 100k+ active links since launch. Built using Python, Flask, MongoDB, with a React/TypeScript frontend.",
+	"link": "https://oss.rutgers.edu"
 }

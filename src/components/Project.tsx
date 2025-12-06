@@ -1,4 +1,3 @@
-import Image from "astro/components/Image.astro";
 
 type ProjectProps = {
 	title: string;
@@ -22,7 +21,7 @@ export default function Project({
 }: ProjectProps) {
 	return (
 		<div
-			className="animate-fade-in flex flex-row rounded-lg border-gray-300 bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md"
+			className="animate-fade-in flex flex-row rounded-lg border-gray-300 bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md gap-4"
 			style={{ animationDelay: `${index * 100}ms` }}
 		>
 			<div className="">

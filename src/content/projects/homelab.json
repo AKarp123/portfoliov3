@@ -1,0 +1,6 @@
+{
+	"title": "Homelab",
+	"description": "Random collection of projects hosted on a vps somewhere. Installed Navidrome, a media server geared for music. Portainer for container management and other miscellaneous services, including a minecraft server.",
+	"tags": ["Linux", "Docker"],
+	"order": 4
+}

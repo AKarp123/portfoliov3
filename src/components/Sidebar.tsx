@@ -14,7 +14,7 @@ const Sidebar = ({ currentPath } : { currentPath: string}) => {
 				<a
 					key={page.name}
 					href={page.href}
-					className={`${currentPath === page.href ? "font-bold" : "text-gray-700"} font-pixel text-[24px]`}
+					className={`font-pixel text-[24px] transition-[font-weight] duration-300 ${currentPath === page.href ? "font-bold" : "font-normal text-gray-700"}`}
 				>
 					{page.name}
 				</a>

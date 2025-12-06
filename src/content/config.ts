@@ -21,8 +21,8 @@ const experienceCollection = defineCollection({
 	schema: z.object({
 		company: z.string(),
 		position: z.string(),
-		startDate: z.string(),
-		endDate: z.string().optional(),
+		startDate: z.string().regex(/^\d{4}-\d{2}$/),
+		endDate: z.string().regex(/^\d{4}-\d{2}$/).optional(),
 		description: z.string(),
 		link: z.string().optional(),
 	}),

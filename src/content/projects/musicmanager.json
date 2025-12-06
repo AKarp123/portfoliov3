@@ -1,7 +1,7 @@
 {
 	"title": "Music Manager",
 	"description": "Semi-automatic system for managing music files being sent to my navidrome server. Automatically checks tags, adds replaygain and includes options for transcoding with FFmpeg. Also includes a webui for managing folders. ",
-	"tags": ["Node.js"],
+	"tags": ["Node.js", "React"],
 	"github": "https://github.com/akarp123/musicmanager",
 	"order": 2
 }

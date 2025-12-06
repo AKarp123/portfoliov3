@@ -6,16 +6,14 @@ import "../styles/global.css";
 
 const projects = await getCollection("projects");
 const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
-
 ---
 
 <Layout>
-	<div>
-		<h1 class="mb-8 text-4xl font-bold">Projects</h1>
-
-		<div class="flex flex-col gap-12">
-			{sortedProjects.map((project, i) => (
-				<Project 
+	<h1 class="text-4xl font-bold my-8">Projects</h1>
+	<div class="flex flex-col gap-4">
+		{
+			sortedProjects.map((project, i) => (
+				<Project
 					title={project.data.title}
 					description={project.data.description}
 					image={project.data.image}
@@ -24,9 +22,8 @@ const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
 					tags={project.data.tags}
 					featured={project.data.featured}
 					index={i}
-					
 				/>
-			))}
-		</div>
+			))
+		}
 	</div>
 </Layout>

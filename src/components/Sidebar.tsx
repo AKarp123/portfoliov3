@@ -4,6 +4,7 @@ const Sidebar = ({ currentPath } : { currentPath: string}) => {
 		{ name: "Home", href: "/" },
 		{ name: "Projects", href: "/projects" },
 		{ name: "Experience", href: "/experience" },
+		{ name: "Other", href: "/other" },
 	]
 
 

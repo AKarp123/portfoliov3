@@ -30,6 +30,9 @@ const currentPath = Astro.url.pathname
 				document.documentElement.style.colorScheme = initial;
 			})();
 		</script>
+		<script is:inline>
+			document.documentElement.classList.add("is-initial-load");
+		</script>
 
 		<!-- <ClientRouter /> -->
 	</head>
@@ -88,6 +91,15 @@ const currentPath = Astro.url.pathname
 <style>
 
 	
+	html.is-initial-load .transition-swup-fade {
+		opacity: 0;
+		}
+
+	html.is-ready .transition-swup-fade {
+		transition: opacity 0.48s, transform 260ms ease;
+		opacity: 1;
+		transform: translateY(0);
+	}
 
 
 	html.is-changing .transition-swup-fade {

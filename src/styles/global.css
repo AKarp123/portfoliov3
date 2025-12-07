@@ -59,8 +59,8 @@ a {
 }
 
 
-.resize-transition {
-	transition: width 280ms ease, height 280ms ease, margin 280ms ease, padding 280ms ease;
+.main-transition {
+	transition: opacity 0.48s ease, width 280ms ease, height 280ms ease, margin 280ms ease, padding 280ms ease;
 }
 
 .animate-fade-in {

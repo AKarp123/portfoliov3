@@ -82,7 +82,7 @@ const { pageTitle } = Astro.props;
 		<main class="flex flex-row rounded-lg">
 			<Sidebar currentPath={currentPath} />
 
-			<div id="swup" class="transition-swup-fade max-h-screen overflow-auto no-scrollbar mx-auto w-[90%] md:w-[60%] md:mx-4 pb-4 resize-transition">
+			<div id="swup" class="transition-swup-fade max-h-screen overflow-auto no-scrollbar mx-auto w-[90%] md:w-[60%] md:mx-4 pb-4 main-transition">
 				<slot />
 			</div> 
 		</main>
@@ -97,9 +97,7 @@ const { pageTitle } = Astro.props;
 		}
 
 	html.is-ready .transition-swup-fade {
-		transition: opacity 0.48s, transform 260ms ease;
 		opacity: 1;
-		transform: translateY(0);
 	}
 
 

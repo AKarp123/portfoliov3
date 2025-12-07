@@ -10,7 +10,7 @@ const Sidebar = ({ currentPath } : { currentPath: string}) => {
 
 
 	return (
-		<div className="max-h-screen min-h-screen max-w-[20%] min-w-[20%] md:flex-col items-end justify-center hidden md:flex resize-transition">
+		<div className="max-h-screen min-h-screen max-w-[20%] min-w-[20%] md:flex-col items-end justify-center hidden md:flex main-transition">
 			{pages.map((page) => (
 				<a
 					key={page.name}

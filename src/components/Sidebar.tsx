@@ -8,7 +8,6 @@ export const pages = [
 const Sidebar = ({ currentPath } : { currentPath: string}) => {
 
 
-
 	return (
 		<div className="max-h-screen min-h-screen max-w-[20%] min-w-[20%] md:flex-col items-end justify-center hidden md:flex main-transition">
 			{pages.map((page) => (
@@ -16,7 +15,7 @@ const Sidebar = ({ currentPath } : { currentPath: string}) => {
 					key={page.name}
 					href={page.href}
 					className={`font-pixel cursor-pointer text-[24px] transition-[font-weight,color] duration-300 ${
-						currentPath === page.href
+						currentPath.split("/")[1] === page.href.split("/")[1]
 							? "font-bold text-[var(--color-text-primary)]"
 							: "font-normal text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]"
 					}`}

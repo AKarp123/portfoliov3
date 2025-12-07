@@ -4,7 +4,7 @@
 	"image": "@src/assets/esr.png",
 	"url": "https://easternskyradio.xyz",
 	"github": "https://github.com/AKarp123/EasternSkyRadio",
-	"tags": ["React", "TypeScript", "Bun", "Express.js", "MongoDB", "Caddy"],
+	"tags": ["React", "TypeScript", "Bun", "Express.js", "MongoDB", "Caddy", "Docker"],
 	"featured": true,
 	"order": 1
 }

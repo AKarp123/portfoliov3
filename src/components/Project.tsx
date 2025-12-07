@@ -21,7 +21,7 @@ export default function Project({
 }: ProjectProps) {
 	return (
 		<div
-			className="animate-fade-in flex flex-row gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md"
+			className="animate-fade-in flex md:flex-row gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md flex-col-reverse"
 			style={{ animationDelay: `${index * 100}ms` }}
 		>
 			<div className="">
@@ -64,7 +64,7 @@ export default function Project({
 					)}
 				</div>
 			</div>
-			{image && <img className="w-32 h-32 self-center rounded-xl object-cover " src={image.src} alt={title}/>}
+			{image && <img className="md:h-[20vh] md:w-[20vh] self-center rounded-xl object-cover" src={image.src} alt={title}/>}
 		</div>
 	);
 }

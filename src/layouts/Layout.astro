@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Sidebar from "../components/Sidebar";
 import MenuBar from "@src/components/MenuBar";
 const currentPath = Astro.url.pathname
+const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ const currentPath = Astro.url.pathname
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle ? `${pageTitle} | Ashton Karp` : "Ashton Karp"}</title>
 		<script is:inline>
 			(() => {
 				const storageKey = "theme-preference";

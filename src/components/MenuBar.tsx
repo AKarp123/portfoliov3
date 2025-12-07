@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { pages } from "./Sidebar"
+import { useClickAway } from "@uidotdev/usehooks";
 
 
 const MenuBar = () => {
 
 	const [isOpen, setIsOpen] = useState(false);
+
+
+	const menuRef = useClickAway<HTMLDivElement>( () => {
+		if (isOpen) {
+			setIsAnimatingOut(true);
+			setIsOpen(false);
+		}
+	});
 
 	const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
@@ -19,7 +28,7 @@ const MenuBar = () => {
 	};
 
 	return (
-		<div className="relative md:hidden ">
+		<div className="relative md:hidden" id="menu-bar">
 			<button
 				type="button"
 				className="flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-content)] px-3 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm transition cursor-pointer hover:shadow-md focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] w-[58px] h-[50px] justify-center"
@@ -46,6 +55,7 @@ const MenuBar = () => {
 			</button>
 			{(isOpen || isAnimatingOut) && (
 				<div
+					ref={menuRef}
 					onAnimationEnd={() => {
 						if (!isOpen) setIsAnimatingOut(false);
 					}}

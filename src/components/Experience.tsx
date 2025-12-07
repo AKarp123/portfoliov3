@@ -30,6 +30,8 @@ const Experience = ({
 }: ExperienceProps) => {
 	const dateRange = `${formatDate(startDate)} — ${formatDate(endDate)}`;
 
+	const paragraphs = description.split("\n");
+
 	return (
 		<div
 			className="animate-fade-in flex gap-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-4 opacity-0 transition-shadow hover:shadow-md"
@@ -54,7 +56,14 @@ const Experience = ({
 				</div>
 
 				<p className="font-pixel text-xl font-semibold">{position}</p>
-				<p className="mt-2 font-pixel leading-relaxed text-[var(--color-text-secondary)]">{description}</p>
+				{paragraphs.map((description, idx) => (
+					<p
+						key={idx}
+						className="mt-2 font-pixel leading-relaxed text-[var(--color-text-secondary)]"
+					>
+						{description}
+					</p>
+				))}
 			</div>
 		</div>
 	);

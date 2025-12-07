@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://AKarp123.github.io/portfoliov3/",
+	site: "https://akarp.dev",
 	integrations: [react(), swup({
 		theme: false,
 		animationClass: 'transition-swup-',

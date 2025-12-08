@@ -2,7 +2,7 @@
 @tailwind utilities;
 
 :root {
-	color-scheme: light;
+
 	--color-background: #d9eafd;
 	--color-content: #f8fafc;
 	--color-content-alt: #cdd9e5;

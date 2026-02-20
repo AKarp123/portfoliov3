@@ -4,7 +4,7 @@ type ProjectProps = {
 	description: string;
 	url?: string;
 	github?: string;
-	image?: any;
+	image?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 	tags?: string[];
 	featured?: boolean;
 	index: number;
@@ -21,10 +21,10 @@ export default function Project({
 }: ProjectProps) {
 	return (
 		<div
-			className="animate-fade-in flex lg:flex-row gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-6 opacity-0 transition-shadow hover:shadow-md flex-col-reverse"
+			className="animate-fade-in flex lg:flex-row gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-content)] px-6 py-6 opacity-0 transition-shadow hover:shadow-md flex-col-reverse justify-between"
 			style={{ animationDelay: `${index * 100}ms` }}
 		>
-			<div className="">
+			<div className="flex flex-col justify-between">
 				<h3 className="font-pixel mb-2 text-xl font-bold">{title}</h3>
 				<p className="font-pixel mb-4 text-[var(--color-text-secondary)]">{description}</p>
 
@@ -64,7 +64,7 @@ export default function Project({
 					)}
 				</div>
 			</div>
-			{image && <img className="lg:h-[20vh] lg:w-[20vh] self-center rounded-xl object-cover" src={image.src} alt={title}/>}
+			{image && <img className="lg:h-[20vh] lg:w-[20vh] self-center rounded-xl object-cover justify-end" src={image.src} alt={title}/>}
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Project from "../components/Project.tsx";
-import { getCollection, z } from "astro:content";
+import { getCollection } from "astro:content";
 import "../styles/global.css";
 
 const projects = await getCollection("projects");

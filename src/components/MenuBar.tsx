@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { pages } from "./Sidebar"
 import { useClickAway } from "@uidotdev/usehooks";
 

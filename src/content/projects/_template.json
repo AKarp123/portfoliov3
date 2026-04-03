@@ -1,0 +1,10 @@
+{
+	"title": "Project Title",
+	"description": "Short description of the project.",
+	"image": "@src/assets/esr.png",
+	"url": "https://example.com",
+	"github": "https://github.com/username/repo",
+	"tags": ["Tech1", "Tech2"],
+	"featured": false,
+	"order": 0
+}
